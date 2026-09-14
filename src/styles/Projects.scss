@@ -1,0 +1,366 @@
+@import "../styles/styles.scss";
+
+.projects-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 70px 0;
+  background: #11172b;
+
+  .projects-content {
+    @include flex-column-center;
+    position: relative;
+    max-width: 1440px;
+    width: 100%;
+    .projects-tittle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h2 {
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 58px;
+        text-align: center;
+        color: #0ee7b7;
+      }
+
+      span {
+        width: 80px;
+        height: 4px;
+        background: #0ee7b7;
+      }
+    }
+  }
+  @include responsive(phone-L) {
+    padding: 40px 0;
+    .projects-content {
+      .projects-tittle {
+        h2 {
+          font-size: 30px;
+          font-weight: 600;
+          line-height: 31px;
+          letter-spacing: 0em;
+        }
+      }
+    }
+  }
+}
+
+/*-------- BUTTONLIST STYLES ----------------*/
+@keyframes expandWidthHover {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes shrinkWidthHover {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+.buttonList {
+  @include flex-row-center;
+  gap: 30px;
+  margin: 50px 0 20px;
+
+  button {
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    p {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 21px;
+      letter-spacing: 0em;
+      color: rgb(122, 199, 227);
+      padding: 0 10px;
+    }
+    span {
+      background: #0ee7b7;
+      width: 0%;
+      height: 2px;
+      animation: shrinkWidthHover 0.5s ease forwards;
+    }
+  }
+
+  button:hover span,
+  button:focus span {
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+  }
+  button:hover span {
+    animation-name: expandWidthHover;
+  }
+
+  button:focus span {
+    animation-name: shrinkWidthHover;
+  }
+
+  .activeButton {
+    color: #fff;
+    span {
+      background: #0ee7b7;
+      width: 100% !important;
+    }
+  }
+
+  @include responsive("phone-L") {
+    gap: 0px;
+    width: 100%;
+    button {
+      width: fit-content;
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+/*-------- CARDLIST STYLES ----------------*/
+
+.cardList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1390px;
+
+  .cardList-container {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    cursor: pointer;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: all 400ms ease-out;
+      will-change: transform;
+    }
+
+    .cardList-container-capa {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      transition: all 400ms ease-out;
+      opacity: 0;
+      visibility: hidden;
+      text-align: center;
+      @include flex-column;
+      justify-content: space-between;
+      align-items: center;
+
+      .cardList-text {
+        @include flex-column-center;
+        gap: 5px;
+        transition: all 400ms ease-out;
+        margin-top: 10px;
+        h2{
+          @include desktopH3;
+          color: #11172b;
+          font-weight: 600;
+        }
+        p{
+          @include subMedium;
+          color: #7ac7e3;
+        }
+      }
+
+      .cardList-button {
+        @include flex-row-center;
+        @include ParagBody1Medium;
+        padding: 5px 10px;
+        color: #11172b;
+        cursor: pointer;
+        border: 3px solid #0ee7b7;
+        transition: all 400ms ease-out;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .cardList-container:hover > .cardList-container-capa {
+    opacity: 0.9;
+    visibility: visible;
+
+    .cardList-text {
+      margin-top: 70px;
+      margin-bottom: 15px;
+    }
+
+    .cardList-button {
+      border: 3px solid #0ee7b7;
+      margin-bottom: 100px;
+    }
+
+    .cardList-button:hover {
+      background: #0ee7b7;
+      color: #fff;
+    }
+  }
+
+  .cardList-container:hover > img {
+    transform: scale(1.3);
+  }
+
+  @include responsive(tablet) {
+    width: 90%;
+    display: none;
+  }
+}
+
+/*------------- CARD CAPA -------------------------*/
+.cardList-info {
+  @include flex-column-center;
+  width: 55%;
+  height: 90vh;
+  position: fixed;
+  top: 63px;
+  left: 0;
+  right: 0;
+  z-index: 150 !important;
+  margin: auto;
+  background: #fff;
+
+  .cardList-info-carousel {
+    height: 50%;
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .cardList-info-container {
+    height: 50%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    @include flex-column;
+
+    .cardList-info-title-container{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 20px;
+      h2 {
+        @include desktopH3;
+      }
+    }
+    span {
+      @include ParagCaptionMedium;
+      color: #7c7b7b;
+      margin: 0px 0 0px 0;
+    }
+
+    p {
+      @include paragCaptionRegular;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .cardList-info-container-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: auto 0px 20px 0px;
+
+      .cardList-a {
+        @include flex-row-center;
+        cursor: pointer;
+        border: 1px solid #11172b;
+        transition: all 0.5s ease-out;
+        background: #11172b;
+        padding: 5px 10px;
+
+        p {
+          @include paragBody1Regular;
+          color: #fff;
+          text-align: center;
+          transition: all 0.5s ease-out;
+        }
+
+        i {
+          color: #fff;
+          margin-right: 5px;
+          transition: all 0.5s ease-out;
+        }
+      }
+
+      .cardList-a:hover {
+        background-color: #fff;
+
+        p {
+          color: #11172b;
+        }
+        i {
+          color: #11172b;
+        }
+      }
+
+      button {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+        i {
+          font-size: 35px;
+          color: #11172b;
+          transition: all 0.5s ease-in-out;
+        }
+      }
+
+      button:hover {
+        background: #11172b;
+        i{
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  @include responsive("laptop") {
+    width: 70%;
+
+    .cardList-info-container {
+      h2 {
+        @include desktopH4;
+      }
+
+      .cardList-info-container-buttons {
+        .cardList-a {
+          p {
+            @include paragCaptionRegular;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

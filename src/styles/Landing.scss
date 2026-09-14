@@ -1,0 +1,96 @@
+@import "../styles/styles.scss";
+
+/* En tu archivo Landing.scss o en un archivo de estilos separado */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-200%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.landing {
+    @include flex-column-center;
+    height: 100vh;
+    background: #11172b;
+    gap: 30px;
+}
+.landing-info {
+    @include flex-column;
+    width: 100%;
+    animation: fadeInDown 1.5s ease-in-out; /* Aplica la animación a .landing-info */
+
+  .landing-info-text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    text-align: center;
+    color: #fff;
+
+    /* color: transparent; */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    animation: text 5s linear infinite;
+    @keyframes text {
+      0% {
+        filter: hue-rotate(0deg);
+      }
+      0% {
+        filter: hue-rotate(360deg);
+      }
+    }
+
+    @include responsive("tablet") {
+      font-size: 42px;
+      line-height: 48px;
+    }
+    @include responsive("phone-L") {
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+    span {
+      font-family: "Raleway-semibold";
+      color: #e31b6d;
+    }
+  }
+}
+
+.landing-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Raleway";
+  font-size: 25px;
+  padding: 12px 20px 12px 20px;
+  color: #fff;
+  cursor: pointer;
+  border: 3px solid #fff;
+  transition: 1s;
+  background: transparent;
+  @include responsive("tablet") {
+    font-size: 17px;
+    border: 2px solid #fff;
+  }
+
+  img {
+    margin-left: 15px;
+    transition: 0.4s;
+    width: 18px;
+    height: auto;
+  }
+}
+.landing-button:hover {
+  background: #04c2c9;
+  border: 3px solid #04c2c9;
+
+  img {
+    transform: rotateZ(90deg);
+  }
+}

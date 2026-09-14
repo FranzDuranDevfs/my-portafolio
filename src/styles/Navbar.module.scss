@@ -1,0 +1,123 @@
+@import "../styles/styles.scss";
+
+.navbar {
+  background-color: transparent;
+  transition: background-color 0.3s;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  height: 60px;
+  display: none;
+
+  .logo {
+    height: 50px;
+    width: auto;
+    img {
+      height: 100%;
+      width: auto;
+      cursor: pointer;
+    }
+  }
+
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    li {
+      margin-right: 20px;
+      cursor: pointer;
+      a {
+        text-decoration: none;
+        color: #11172b; /* Cambia el color del texto del menú */
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+      a:hover {
+        color: #0ee7b7; /* Cambia el color del texto del menú al pasar el ratón por encima */
+      }
+      .active {
+        color: #0ee7b7; /* Cambia el color del elemento de menú activo */
+      }
+    }
+    
+    @include responsive(phone-L) {
+      display: none;
+    }
+  }
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff; /* Cambia esto al color de fondo deseado */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agrega sombra si lo deseas */
+  display: flex;
+  z-index: 100;
+}
+
+/* ... (otros estilos) */
+
+.mobileMenuIcon {
+  display: none; /* Oculta el icono de hamburguesa en pantallas grandes */
+
+  @include responsive(phone-L) {
+    display: flex;
+
+    i {
+      font-size: 35px;
+      color: #11172b;
+    }
+  }
+}
+
+#close {
+  z-index: 101;
+}
+
+.mobileMenu {
+  background-color: #ffffff; /* Color de fondo del menú desplegable */
+  position: fixed;
+  top: 0px; /* Alinea el menú desplegable justo debajo de la barra de navegación */
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* Estilos para los elementos del menú desplegable */
+.mobileMenu ul {
+  list-style: none;
+  padding: 0;
+  text-decoration: none;
+}
+
+.mobileMenu li {
+  margin-bottom: 20px;
+  text-decoration: none;
+  list-style: none;
+}
+
+.mobileMenu li a {
+  text-decoration: none;
+  color: #11172b;
+  font-weight: bold;
+  font-size: 1.5rem; /* Tamaño de fuente más grande para dispositivos móviles */
+}
+
+.mobileMenu li a:hover {
+  color: #007bff;
+}
+
+.mobileMenu li .active{
+  text-decoration: underline;
+}

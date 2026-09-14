@@ -1,0 +1,317 @@
+@import "../styles/styles.scss";
+
+.container {
+  display: none;
+  @include responsive(tablet) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    //margin-right: 0;
+    //margin-left: auto;
+
+    .swiperContent {
+      max-width: 700px;
+      width: 100%;
+    }
+  }
+
+  @include responsive("phone-L") {
+    .swiperContent{
+      width: 90%;
+    }
+  }
+}
+
+/*-------- CARDLIST STYLES ----------------*/
+
+.cardList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 15px;
+  //max-width: 1390px;
+  //display: none;
+
+  .cardListContainer {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: all 400ms ease-out;
+      will-change: transform;
+    }
+
+    .cardListContainerCapa {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      transition: all 400ms ease-out;
+      opacity: 0;
+      visibility: hidden;
+      text-align: center;
+
+      h4 {
+        font-size: 30px;
+        color: #000;
+        font-weight: 600;
+        margin-bottom: 120px;
+        transition: all 400ms ease-out;
+        margin-top: 35px;
+      }
+
+      .cardListButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Raleway";
+        font-size: 18px;
+        line-height: 1.5;
+        padding: 5px 0;
+        color: #000;
+        cursor: pointer;
+        border: 3px solid #0ee7b7;
+        transition: 1s;
+
+        width: 100%;
+        max-width: 150px;
+        margin: auto;
+      }
+    }
+
+    @include responsive("phone-L") {}
+
+  }
+
+  .cardListContainer:hover > .cardListContainerCapa {
+    opacity: 0.9;
+    visibility: visible;
+
+    h4 {
+      margin-top: 100px;
+      margin-bottom: 15px;
+    }
+
+    .cardListButton {
+      border: 3px solid #0ee7b7;
+    }
+
+    .cardListButton:hover {
+      background: #0ee7b7;
+      color: #fff;
+    }
+  }
+
+  .cardListButton:hover > img {
+    transform: scale(1.3);
+  }
+}
+
+
+/*------------- CARD CAPA -------------------------*/
+.cardList-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 55%;
+  height: 90%;
+  position: fixed;
+  top: 63px;
+  /* Establece la distancia entre el navbar y el borde superior de la pantalla */
+  left: 0;
+  right: 0;
+  z-index: 99;
+  margin: auto;
+  background: #fff;
+  color: #fff;
+
+  @include responsive("laptop") {
+    height: 88%;
+    width: 70%;
+  }
+
+  @include responsive("tablet") {
+    width: 99%;
+  }
+  @include responsive("phone-L") {
+    width: 90%;
+    height: auto;
+    top: 80px;
+    border: 3px solid;
+    border-image: linear-gradient(
+      to bottom,
+      #7ac7e3,
+      #0ee7b7
+    ); /* Cambia los colores según tus preferencias */
+    border-image-slice: 1; /* Define cómo se corta la imagen de borde */
+  }
+
+  .cardList-info-carousel {
+    height: 50%;
+    width: 100%;
+    text-align: center;
+    background: #444649;
+
+    @include responsive("phone-L") {
+      height: auto;
+    }
+
+    img {
+      height: 100%;
+      width: auto;
+
+      @include responsive("phone-L") {
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+
+  .cardList-info-container {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include responsive("phone-L") {
+      height: auto;
+    }
+
+    h2 {
+      font-size: 30px;
+      color: #444;
+      margin: 20px 20px 0 20px;
+
+      @include responsive("laptop") {
+        font-size: 22px;
+      }
+      @include responsive("phone-L") {
+        font-size: 18px;
+        margin: 15px 20px 0 20px;
+      }
+    }
+
+    span {
+      font-size: 14px;
+      color: #444;
+      margin: 0 20px;
+
+      @include responsive("laptop") {
+        font-size: 12px;
+      }
+      @include responsive("phone-L") {
+        font-size: 10px;
+        margin: 10px 20px;
+      }
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 20px;
+      color: #444;
+      margin: 0 20px;
+
+      @include responsive("laptop") {
+        font-size: 14px;
+      }
+      @include responsive("phone-L") {
+        font-size: 12px;
+        line-height: 15px;
+        margin: 0 20px 10px 20px;
+      }
+    }
+
+    .cardList-info-container-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 20px 20px 20px;
+
+      @include responsive("phone-L") {
+        margin: 0 20px 15px 20px;
+      }
+
+      .cardList-a {
+        cursor: pointer;
+        border: none;
+        transition: all 0.5s ease-out;
+        background: #11172b;
+        color: #e31b6d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px;
+
+        span {
+          font-family: "Raleway";
+          font-size: 18px;
+          color: #fff;
+          text-align: center;
+          margin: 0;
+          transition: all 0.5s ease-out;
+
+          @include responsive("laptop") {
+            font-size: 12px;
+          }
+          @include responsive("phone-L") {
+            font-size: 10px;
+          }
+        }
+
+        i {
+          margin-right: 5px;
+          transition: all 0.5s ease-out;
+        }
+      }
+
+      .cardList-a:hover {
+        background-color: #fff;
+
+        span {
+          color: #11172b;
+        }
+        i {
+          color: #11172b;
+        }
+      }
+
+      button {
+        border: none;
+        font-size: 35px;
+        font-weight: 700;
+        background: transparent;
+        color: rgba(0, 0, 0, 0.445);
+        cursor: pointer;
+        transition: all 0.5s ease-out;
+        
+
+        @include responsive("laptop") {
+          font-size: 20px;
+        }
+
+        @include responsive("phone-L") {
+          font-size: 19px;
+        }
+      }
+
+      button:hover {
+        color: #11172b;
+      }
+    }
+  }
+}
+

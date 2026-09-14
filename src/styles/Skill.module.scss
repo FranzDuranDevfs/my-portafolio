@@ -1,0 +1,147 @@
+@import "../styles/styles.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  background: #11172b;
+  padding: 70px 0;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1440px;
+    width: 80%;
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 50px;
+
+      h2 {
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 58px;
+        text-align: center;
+        color: #0ee7b7;
+      }
+
+      span {
+        width: 80px;
+        height: 4px;
+        background: #0ee7b7;
+      }
+    }
+
+    .skill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
+
+        span {
+          color: rgb(196, 196, 196);
+          font-weight: 300;
+          font-size: 18px;
+          text-align: center;
+          text-transform: uppercase;
+        }
+        img {
+          width: 6.5rem;
+          height: 6.5rem;
+          background-color: rgb(122, 199, 227);
+          transition: all 0.3s ease 0s;
+          padding: 10px;
+          margin: 0 auto;
+        }
+        img:hover {
+          background: rgb(14, 231, 183);
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+
+  @include responsive(phone-L) {
+    padding: 40px 0;
+    .content {
+      width: 90%;
+      .title {
+        margin-bottom: 40px;
+        h2 {
+          font-size: 30px;
+          font-weight: 600;
+          line-height: 31px;
+          letter-spacing: 0em;
+        }
+      }
+      .skill {
+        display: none;
+      }
+    }
+  }
+}
+
+.swiperContainer {
+  @include flex-column;
+  align-items: center;
+  width: 100%;
+
+  .swiper {
+    @include flex-row;
+    width: 100%;
+    .cardMobile {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      //width: 6.6rem;
+      width: 100%;
+      height: 100%;
+
+      span {
+        color: rgb(196, 196, 196);
+        font-weight: 300;
+        font-size: 18px;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 0px 0 auto 0;
+      }
+
+      .imageContent {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto 0;
+        background: #7ac7e3;
+        img {
+          //width: 6.5rem;
+          //height: 6.5rem;
+          width: 100%;
+          height: auto;
+          background-color: rgb(122, 199, 227);
+          transition: all 0.3s ease 0s;
+          padding: 10px;
+          margin: 0 auto;
+        }
+        /* img:hover {
+            background: rgb(14, 231, 183);
+            transform: scale(0.95);
+          } */
+      }
+    }
+  }
+}

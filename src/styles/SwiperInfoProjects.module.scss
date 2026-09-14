@@ -1,0 +1,34 @@
+@import "../styles/styles.scss";
+
+.swiperContainer {
+  width: 100%;
+  height: 100%;
+  .swiper {
+    width: 100%;
+    height: 100%;
+    .imgContent {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+  }
+
+  @include responsive(tablet){
+      height: 200px;
+      .swiper{
+          .imgContent{
+            img{
+                width: 100%;
+                height: auto;
+            }
+          }
+      }
+}
+}

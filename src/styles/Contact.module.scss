@@ -1,0 +1,128 @@
+@import "../styles/styles.scss";
+
+.contact {
+  @include flex-column-center;
+  background: #11172b;
+  padding: 70px 0;
+
+  @include responsive("phone-L") {
+    padding: 40px 0;
+  }
+
+  .formContainer {
+    @include flex-column-center;
+
+    @include responsive("phone-L") {
+      width: 90%;
+    }
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h2 {
+        font-family: "Inter", sans-serif;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 62px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #0ee7b7;
+
+        @include responsive("phone-L") {
+          font-size: 30px;
+          font-weight: 600;
+          line-height: 31px;
+          letter-spacing: 0em;
+        }
+      }
+
+      span {
+        width: 80px;
+        height: 5px;
+        background: #0ee7b7;
+        margin-top: 5px;
+      }
+    }
+
+    .text {
+      //color: #04c2c9;
+      color: rgb(122, 199, 227);
+      font-size: 16px;
+      font-weight: 600;
+      font-family: "Inter", sans-serif;
+      margin: 40px 0;
+
+      @include responsive("phone-L") {
+        width: 100%;
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+
+    form {
+      @include flex-column-center;
+      width: 500px;
+
+      @include responsive("phone-L") {
+        width: 100%;
+      }
+
+      input {
+        background: #1e242c;
+        border: 0;
+        box-sizing: border-box;
+        color: #fff;
+        display: block;
+        font-size: 12pt;
+        margin-top: 3px;
+        outline: none;
+        padding: 10px 15px;
+        width: 100%;
+      }
+
+      textarea {
+        height: 150px;
+        background: #1e242c;
+        border: 0;
+        box-sizing: border-box;
+        color: #fff;
+        display: block;
+        font-size: 12pt;
+        margin-bottom: 3px;
+        margin-top: 3px;
+        outline: none;
+        padding: 10px 15px;
+        width: 100%;
+        resize: none;
+      }
+
+      .formError {
+        font-size: 12px;
+        font-family: "Inter", sans-serif;
+        color: #e31b6d;
+      }
+
+      .inputButton {
+        width: fit-content;
+        background: transparent;
+        color: #fff;
+        font-size: 12pt;
+        margin: 5px 0 0 0;
+        outline: 0;
+        padding: 10px 30px;
+        border: 2px solid #fff;
+        cursor: pointer;
+        font-size: 13pt;
+        transition: all 0.5s;
+      }
+
+      .inputButton:hover {
+        background: #0ee7b7;
+        border: 2px solid #0ee7b7;
+      }
+    }
+  }
+}
