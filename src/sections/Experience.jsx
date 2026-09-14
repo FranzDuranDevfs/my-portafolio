@@ -5,7 +5,7 @@ import styles from "../styles/Experience.module.scss";
 
 const data = [
   {
-    year: "Mar 2026 – Present",
+    year: "Mar 2026 – Sept 2026",
     position: "Frontend Developer",
     company: "Colibrí",
     description:
