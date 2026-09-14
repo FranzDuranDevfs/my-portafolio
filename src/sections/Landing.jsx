@@ -17,7 +17,7 @@ export default function Landing() {
         <p className="landing-info-role">Frontend Developer</p>
 
         <h1 className="landing-info-text">
-          Hi, I'm <span>Franz Duran</span>.<br />
+          Hi, I&apos;m <span>Franz Duran</span>.<br />
           I build modern web applications
           <br />
           with React & Next.js.
