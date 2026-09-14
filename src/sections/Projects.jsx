@@ -73,8 +73,8 @@ export default function Projects({ dataProjects }) {
                 <Image
                   src={project.images[0].src || project.images[0]}
                   alt={`${project.title} interface`}
-                  width={100}
-                  height={100}
+                  width={1000}
+                  height={1000}
                 />
 
                 <span className="project-case-study-number">
