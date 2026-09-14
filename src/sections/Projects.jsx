@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import "../styles/Projects.scss";
 import { useState } from "react";
 
@@ -69,9 +70,11 @@ export default function Projects({ dataProjects }) {
               key={project.id}
             >
               <div className="project-case-study-image">
-                <img
+                <Image
                   src={project.images[0].src || project.images[0]}
                   alt={`${project.title} interface`}
+                  width={100}
+                  height={100}
                 />
 
                 <span className="project-case-study-number">
