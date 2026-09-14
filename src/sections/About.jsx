@@ -1,40 +1,71 @@
 "use client";
+
 import "../styles/About.scss";
 import image from "../../public/assets/perfil.png";
 import Image from "next/image";
 
 export default function About() {
   const handleClickNav = (scrollToId) => {
-    document.getElementById(scrollToId)?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(scrollToId)?.scrollIntoView({
+      behavior: "smooth",
+    });
   };
-  const description =
-    "I'm a Full-Stack Developer based in Buenos Aires, Argentina, with nearly two years of experience in web design and development. I've led personal projects from start to finish and collaborated with other developers on team-based initiatives, delivering functional, scalable, and user-focused solutions. I stand out for combining clean design, efficient code, and optimized performance. Whether working independently or as part of a team, I always aim to deliver real value through every product I build.";
+
+  const description = `
+    I'm a Frontend Developer specialized in React and Next.js, based in
+    Buenos Aires, Argentina. I have experience building web applications,
+    dashboards and product interfaces, working with JavaScript, React,
+    Next.js, Tailwind CSS, Node.js, PostgreSQL and REST APIs.
+  `;
+
+  const descriptionSecondary = `
+    I've worked on professional and personal products, collaborating with
+    developers throughout the development lifecycle — from interface
+    implementation and API integration to deployment and maintenance.
+    I enjoy solving problems, creating reusable components and turning
+    product requirements into clear and scalable user experiences.
+  `;
+
   return (
     <section id="about" className="about-container">
       <div className="about-content">
         <div className="about-title">
-          <h2>ABOUT</h2>
+          <h2>ABOUT ME</h2>
           <span></span>
         </div>
+
         <div className="about-container-perfil">
           <div className="about-perfil-img">
             <div className="about-perfil-img-hexagon">
-              <Image src={image} alt="Franz Duran" loading="lazy" />
+              <Image
+                src={image}
+                alt="Franz Duran - Frontend Developer"
+                loading="lazy"
+              />
             </div>
           </div>
+
           <div className="about-perfil-text">
-            <h3>Who s this guy?</h3>
+            <span className="about-perfil-role">
+              Frontend Developer · React · Next.js
+            </span>
+
+            <h3>Building products, not just interfaces.</h3>
+
             <p>{description}</p>
-            <p
+
+            <p>{descriptionSecondary}</p>
+
+            <button
               onClick={() => handleClickNav("contact")}
-              className="about-perfil-text-p"
+              className="about-perfil-text-button"
             >
-              {" "}
-              Let s make something special.
-            </p>
+              Let's work together →
+            </button>
           </div>
         </div>
       </div>
     </section>
   );
 }
+

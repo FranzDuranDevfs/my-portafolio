@@ -3,146 +3,307 @@
 .container {
   display: flex;
   justify-content: center;
+
   width: 100%;
+
+  padding: 100px 40px;
+
   background: #11172b;
-  padding: 70px 0;
 
   .content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    max-width: 1440px;
+
     width: 100%;
-    gap: 50px;
-    .title {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    max-width: 1200px;
 
-      h2 {
-        font-family: "Inter", sans-serif;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 48px;
-        line-height: 58px;
-        text-align: center;
-        color: #0ee7b7;
-      }
+    gap: 65px;
+  }
 
-      span {
-        width: 80px;
-        height: 4px;
-        background: #0ee7b7;
-      }
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+      margin: 0;
+
+      font-family: "Inter", sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 58px;
+
+      text-align: center;
+
+      color: #0ee7b7;
     }
 
-    .cards {
-      width: 100%;
+    span {
+      width: 80px;
+      height: 4px;
+
+      margin-top: 15px;
+
+      background: #0ee7b7;
+    }
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    width: 100%;
+
+    gap: 40px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-height: 420px;
+
+    padding: 32px;
+
+    background: linear-gradient(
+      225deg,
+      rgb(49, 56, 96) 0%,
+      rgb(17, 23, 43) 100%
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    box-sizing: border-box;
+
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+
+      border-color: rgba(14, 231, 183, 0.35);
+
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .cardHeader {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .date {
+    margin-bottom: 14px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    color: #0ee7b7;
+  }
+
+  .cardHeader h3 {
+    margin: 0 0 8px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 27px;
+    font-weight: 600;
+    line-height: 1.3;
+
+    color: #ffffff;
+  }
+
+  .company {
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    color: #7ac7e3;
+  }
+
+  .description {
+    margin: 25px 0 20px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+
+    color: #c4c4c4;
+  }
+
+  .technologies {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+
+    span {
+      padding: 6px 10px;
+
+      font-family: "Inter", sans-serif;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      color: #04c2c9;
+
+      background: rgba(4, 194, 201, 0.08);
+
+      border: 1px solid rgba(4, 194, 201, 0.25);
+
+      border-radius: 4px;
+    }
+  }
+
+  .responsibilities {
+    margin-top: 5px;
+
+    h4 {
+      margin: 0 0 12px;
+
+      font-family: "Inter", sans-serif;
+
+      font-size: 16px;
+      font-weight: 600;
+
+      color: #ffffff;
+    }
+
+    ul {
       display: flex;
-      justify-content: center;
-      gap: 50px;
+      flex-direction: column;
 
-      .card {
-        display: flex;
-        flex-direction: column;
-        background: linear-gradient(
-          225deg,
-          rgb(49, 56, 96) 0%,
-          rgb(17, 23, 43) 100%
-        );
-        padding: 30px 16px;
-        height: fit-content;
-        align-items: flex-start;
-        -webkit-box-pack: start;
-        justify-content: flex-start;
-        max-width: 19rem;
-        transition: all 0.5s ease 0s;
-        //margin-top: 4rem;
+      gap: 9px;
 
-        h3 {
-          color: rgb(14, 231, 183);
-          font-size: 2rem;
-          margin-bottom: 15px;
-        }
-        h4 {
-          color: rgb(122, 199, 227);
-          font-size: 1.5rem;
-          font-weight: 300;
-          margin-bottom: 16px;
-        }
-        span {
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
-          margin-bottom: 16px;
-          p {
-            font-size: 18px;
-            font-weight: 300;
-            color: #c383dd;
-          }
-        }
-        .description {
-          color: rgb(196, 196, 196);
-          font-size: 1rem;
-          font-weight: 300;
-        }
-        .technologies {
-          margin-top: 1rem;
-          font-size: 1rem;
-          font-weight: 300;
-          color: rgb(196, 196, 196);
-          strong{
-            font-weight: 600;
-          }
-        }
-        
-        .toggleButton {
-          background-color: #007bff;
-          color: white;
-          border: none;
-          padding: 8px 16px;
-          cursor: pointer;
-          margin-top: 8px;
-        }
+      margin: 0;
+      padding-left: 20px;
 
-        .toggleButton:hover {
-          background-color: #0056b3;
-        }
-      }
-      .cardExpanded {
-        max-width: 19rem;
-        width: 100%;
+      li {
+        font-family: "Inter", sans-serif;
+
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.6;
+
+        color: #c4c4c4;
       }
     }
   }
 
-  @include responsive("phone-L") {
-    padding: 40px 0;
-    .content {
-      gap: 40px;
-      .title {
-        h2 {
-          font-size: 30px;
-          font-weight: 600;
-          line-height: 31px;
-          letter-spacing: 0em;
-          text-align: center;
-        }
-      }
-      .cards {
-        @include flex-column-center;
-        gap: 25px;
-        .card {
-          margin-top: 0;
-          padding: 20px 16px;
+  .toggleButton {
+    align-self: flex-start;
 
-          h4,
-          h3 {
-            margin: 0 0 0 0;
-          }
-        }
+    margin-top: auto;
+    padding: 10px 0;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #04c2c9;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition:
+      color 0.25s ease,
+      transform 0.25s ease;
+
+    &:hover {
+      color: #0ee7b7;
+
+      transform: translateX(4px);
+    }
+  }
+
+  .cardExpanded {
+    min-height: auto;
+  }
+
+  @include responsive("tablet") {
+    padding: 80px 30px;
+
+    .cards {
+      grid-template-columns: 1fr;
+
+      max-width: 700px;
+    }
+
+    .card {
+      min-height: auto;
+    }
+  }
+
+  @include responsive("phone-L") {
+    padding: 65px 20px;
+
+    .content {
+      gap: 45px;
+    }
+
+    .title {
+      h2 {
+        font-size: 32px;
+        line-height: 38px;
+      }
+
+      span {
+        width: 60px;
+        height: 3px;
+
+        margin-top: 10px;
+      }
+    }
+
+    .cards {
+      gap: 25px;
+    }
+
+    .card {
+      padding: 25px 20px;
+    }
+
+    .cardHeader {
+      .date {
+        font-size: 12px;
+      }
+
+      h3 {
+        font-size: 22px;
+      }
+
+      .company {
+        font-size: 16px;
+      }
+    }
+
+    .description {
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .technologies {
+      span {
+        font-size: 11px;
       }
     }
   }

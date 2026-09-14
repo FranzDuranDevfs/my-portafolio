@@ -1,32 +1,65 @@
 "use client";
+
 import React, { useState } from "react";
 import styles from "../styles/Experience.module.scss";
 
 const data = [
   {
-    year: "2023 - 2024",
-    months: "1 year and 11 months",
-    position: "Developer FullStack",
-    company: "Proyment",
-    description: `Led multiple web development projects from start to finish, focusing on frontend design and layout. Collaborated on backend database creation for a key project and contributed to technical decision-making. Integrated tools such as Firebase, Cloudinary, Google Maps, EmailJS, and Intercom to optimize functionality, performance, and user experience across developed platforms.`,
-    technologies:
-      "React.js, Next.js, JavaScript, SCSS, Prisma, Sequelize, PostgreSQL, Node.js",
+    year: "Mar 2026 – Present",
+    position: "Frontend Developer",
+    company: "Colibrí",
+    description:
+      "Frontend development for a web platform focused on entrepreneurship tracking and evaluation. I build role-based dashboards and product workflows, integrating dynamic backend data into responsive and reusable interfaces.",
+    responsibilities: [
+      "Developed role-based dashboards and project workflows.",
+      "Implemented modules for Identity, Stage, Trajectory, Evidence and Reputation.",
+      "Integrated frontend features with REST APIs and backend services.",
+      "Built reusable React components and dynamic data-driven interfaces.",
+      "Implemented responsive layouts across desktop, tablet and mobile.",
+      "Collaborated with the development team using Git and GitHub.",
+    ],
+    technologies: [
+      "React",
+      "Next.js",
+      "JavaScript",
+      "REST APIs",
+      "Git",
+      "GitHub",
+    ],
   },
   {
-    year: 2022,
-    months: "2 months",
-    position: "Teaching Assistant",
-    company: "Bootcamp Henry",
+    year: "2023 – 2024",
+    position: "Full Stack Developer",
+    company: "Proyment",
     description:
-      "Coordinate student integration into study group, guide initial steps, assist with exercises, promote group collaboration, and propose Bootcamp process improvements.",
+      "Worked on multiple web development projects from planning to implementation, with a strong focus on frontend development, responsive interfaces and user experience.",
+    responsibilities: [
+      "Developed and delivered multiple web applications from start to finish.",
+      "Built frontend interfaces and responsive layouts using React and Next.js.",
+      "Collaborated on backend architecture and database development.",
+      "Integrated third-party services to extend product functionality.",
+      "Contributed to technical decisions across frontend and backend development.",
+    ],
+    technologies: [
+      "React",
+      "Next.js",
+      "JavaScript",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma",
+      "Sequelize",
+      "SCSS",
+      "Firebase",
+      "Cloudinary",
+    ],
   },
 ];
+
 export default function Experience() {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const handleExpandClick = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
-    //}
   };
 
   return (
@@ -36,39 +69,57 @@ export default function Experience() {
           <h2>EXPERIENCE</h2>
           <span />
         </div>
+
         <div className={styles.cards}>
-          {data.map((item, index) => (
-            <div
-              key={index}
-              className={`${styles.card} ${
-                expandedIndex === index ? styles.cardExpanded : ""
-              }`}
-            >
-              <h3>{item.year}</h3>
-              <h4>{item.position}</h4>
-              <span>
-                <p>{item.months}</p>
-                <p>{item.company}</p>
-              </span>
-              <p className={styles.description}>
-                {expandedIndex === index || item.description.length <= 210
-                  ? item.description
-                  : item.description.substring(0, 210) + "..."}
-              </p>
-              {/* Mostrar tecnologías si está expandido */}
-              {expandedIndex === index && (
-                <p className={styles.technologies}>
-                  <strong>Technologies used:</strong> {item.technologies}
-                </p>
-              )}
-              <button
-                onClick={() => handleExpandClick(index)}
-                className={styles.toggleButton}
+          {data.map((item, index) => {
+            const isExpanded = expandedIndex === index;
+
+            return (
+              <article
+                key={`${item.company}-${item.year}`}
+                className={`${styles.card} ${
+                  isExpanded ? styles.cardExpanded : ""
+                }`}
               >
-                {expandedIndex === index ? "Read less" : "Read more"}
-              </button>
-            </div>
-          ))}
+                <div className={styles.cardHeader}>
+                  <span className={styles.date}>{item.year}</span>
+
+                  <h3>{item.position}</h3>
+
+                  <p className={styles.company}>{item.company}</p>
+                </div>
+
+                <p className={styles.description}>{item.description}</p>
+
+                <div className={styles.technologies}>
+                  {item.technologies.map((technology) => (
+                    <span key={technology}>{technology}</span>
+                  ))}
+                </div>
+
+                {isExpanded && (
+                  <div className={styles.responsibilities}>
+                    <h4>Key contributions</h4>
+
+                    <ul>
+                      {item.responsibilities.map((responsibility) => (
+                        <li key={responsibility}>{responsibility}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => handleExpandClick(index)}
+                  className={styles.toggleButton}
+                  aria-expanded={isExpanded}
+                >
+                  {isExpanded ? "Read less" : "Read more"}
+                </button>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
